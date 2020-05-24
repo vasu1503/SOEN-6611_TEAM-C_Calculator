@@ -16,7 +16,7 @@ public class DescriptiveStasticalCalculator {
 	int length = 0;
 	Scanner sc = new Scanner(System.in);
 	char input = 'y';
-
+	// vasusasuasuasuasausuausausas
 	while (input == 'y') {
 	    while (length < 10) { // change to 1000
 		System.out.println("Enter the length of number more than 1000 ");
