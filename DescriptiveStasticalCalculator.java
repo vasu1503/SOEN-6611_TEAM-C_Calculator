@@ -37,8 +37,8 @@ public class DescriptiveStasticalCalculator {
 
 	    calculateMean(numbers);
 	 
-	   // calculateMedian(numbers);
-	    calculateMedian1(numbers);
+	   
+	    calculateMedian(numbers);
 	    calculateMode(numbers);
 	    calculateMAD(numbers, mean);
 	    calculateStandardDeviation(numbers, mean);
@@ -78,28 +78,9 @@ public class DescriptiveStasticalCalculator {
 	System.out.println("Mean : " + mean);
     }
 
-    
-    public static void calculateMedian(int[] a) {
-	median = 0;
-	if (a.length % 2 == 0) {
-	    int temp = (a.length / 2) - 1;
-	    for (int i = 0; i < a.length; i++) {
-		if (temp == i || (temp + 1) == i)
-		    median = median + a[i];
-	    }
-	    median = median / 2;
-	} else {
-	    int temp = (a.length / 2);
-	    for (int i = 0; i < a.length; i++) {
-		if (temp == i)
-		    median = a[i];
-	    }
-	}
-	System.out.println("Median : " + median);
+  
 
-    }
-
-    public static void calculateMedian1(int a[]) {
+    public static void calculateMedian(int a[]) {
 	int m1 = 0;
 	int n1 = 0;
 	int n2 = 0;
