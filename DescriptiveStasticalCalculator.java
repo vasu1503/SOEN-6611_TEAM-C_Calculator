@@ -16,9 +16,9 @@ public class DescriptiveStasticalCalculator {
 	int length = 0;
 	Scanner sc = new Scanner(System.in);
 	char input = 'y';
-	// vasusasuasuasuasausuausausas
+	
 	while (input == 'y') {
-	    while (length < 10) { // change to 1000
+	    while (length < 1000) { // change to 1000
 		System.out.println("Enter the length of number more than 1000 ");
 		length = sc.nextInt();
 	    }
@@ -29,19 +29,7 @@ public class DescriptiveStasticalCalculator {
 		numbers[i] = random.nextInt(1001);
 	    }
 
-	    // calculateMax(numbers);
-//	    for (int i = 0; i < numbers.length; i++) {
-//		System.out.print(numbers[i] + ",");
-//
-//	    }
-//	  
-	    sort(numbers);
 	    
-//	    for (int i = 0; i < numbers.length; i++) {
-//		System.out.print(numbers[i] + ",");
-//
-//	    }
-	    // calculateMin(numbers, max);
 	    System.out.println();
 	    
 	    System.out.println("Min : " + numbers[0]);
@@ -61,11 +49,6 @@ public class DescriptiveStasticalCalculator {
 	sc.close();
     }
 
-    /*
-     * public static void calculateMax(int[] a) { int temp = 0; for (int i = 0; i <
-     * a.length; i++) { if (a[i] > temp) temp = a[i]; } max = temp;
-     * System.out.println("Max : " + max); }
-     */
     public static void  sort(int[] a) {
 
 	int temp = 0;
@@ -85,12 +68,7 @@ public class DescriptiveStasticalCalculator {
 	
     }
 
-    /*
-     * public static void calculateMin(int[] a, int b) { int temp = b;
-     * 
-     * for (int i = 0; i < a.length; i++) { if (a[i] < temp) temp = a[i]; } min =
-     * temp; System.out.println("Min : " + min); }
-     */
+    
     public static void calculateMean(int[] a) {
 	int total = 0;
 	for (int i = 0; i < a.length; i++) {
