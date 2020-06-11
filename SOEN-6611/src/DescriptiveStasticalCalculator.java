@@ -1,5 +1,8 @@
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Map.Entry;
 
 public class DescriptiveStasticalCalculator {
 
@@ -10,6 +13,8 @@ public class DescriptiveStasticalCalculator {
     static int mode = 0;
     static double mad = 0;
     static double sd = 0;
+	static HashMap<Integer, Integer> data = new HashMap<Integer, Integer>();
+
 
     public static void main(String[] args) {
 
@@ -27,10 +32,11 @@ public class DescriptiveStasticalCalculator {
 
 	    for (int i = 0; i < numbers.length; i++) {
 		numbers[i] = random.nextInt(1001);
+		if (data.containsKey(numbers[i]))
+			data.replace(numbers[i], data.get(numbers[i]) + 1);
+		else
+			data.put(numbers[i], 1);
 	    }
-
-	    
-	    System.out.println();
 	    
 	    System.out.println("Min : " + numbers[0]);
 	    System.out.println("Max : " + numbers[numbers.length - 1]);
@@ -39,7 +45,7 @@ public class DescriptiveStasticalCalculator {
 	 
 	   // calculateMedian(numbers);
 	    calculateMedian(numbers);
-	    calculateMode(numbers);
+	    calculateMode(data);
 	    calculateMAD(numbers, mean);
 	    calculateStandardDeviation(numbers, mean);
 	    System.out.println("Do you want to perform another time? (y/n)");
@@ -108,27 +114,13 @@ public class DescriptiveStasticalCalculator {
 
     }
 
-    public static void calculateMode(int[] a) {
-	int max_v = 0;
-	int max_c = 0;
-	mode = 0;
-	
-	for (int i = 0; i < a.length; i++) {
-	    int count = 0 ;
-
-	    for (int j = 0; j < a.length; j++)
-		if (a[i] == a[j])
-		    ++count;
-	    
-	    
-	    if (count > max_c) {
-		max_c = count;
-		mode = a[i];
-		
-	    }
-	}
-	System.out.println("Mode : " + mode);
-
+    public static void calculateMode(HashMap<Integer, Integer> a) {
+    	int max_value = Collections.max(a.values());
+		for (Entry<Integer, Integer> entry : a.entrySet()) {
+			if (entry.getValue() == max_value) {
+				System.out.println("Mode : " + entry.getKey());
+			}
+		}
     }
 
     public static void calculateMAD(int[] a, double b) {
