@@ -1,5 +1,6 @@
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.Map.Entry;
@@ -13,7 +14,7 @@ public class DescriptiveStasticalCalculator {
     static int mode = 0;
     static double mad = 0;
     static double sd = 0;
-	static HashMap<Integer, Integer> data = new HashMap<Integer, Integer>();
+	static Map<Integer, Integer> entry_count = new HashMap<Integer, Integer>();
 
 
     public static void main(String[] args) {
@@ -32,10 +33,10 @@ public class DescriptiveStasticalCalculator {
 
 	    for (int i = 0; i < numbers.length; i++) {
 		numbers[i] = random.nextInt(1001);
-		if (data.containsKey(numbers[i]))
-			data.replace(numbers[i], data.get(numbers[i]) + 1);
+		if (entry_count.containsKey(numbers[i]))
+			entry_count.replace(numbers[i], entry_count.get(numbers[i]) + 1);
 		else
-			data.put(numbers[i], 1);
+			entry_count.put(numbers[i], 1);
 	    }
 	    
 	    System.out.println("Min : " + numbers[0]);
@@ -45,7 +46,7 @@ public class DescriptiveStasticalCalculator {
 	 
 	   // calculateMedian(numbers);
 	    calculateMedian(numbers);
-	    calculateMode(data);
+	    calculateMode(entry_count);
 	    calculateMAD(numbers, mean);
 	    calculateStandardDeviation(numbers, mean);
 	    System.out.println("Do you want to perform another time? (y/n)");
@@ -78,7 +79,7 @@ public class DescriptiveStasticalCalculator {
     public static void calculateMean(int[] a) {
 	double total = 0;
 	for (int i = 0; i < a.length; i++) {
-	    total += a[i];
+	    total = total + a[i];
 	}
 	mean = (total / a.length);
 	System.out.println("Mean : " + mean);
@@ -114,7 +115,7 @@ public class DescriptiveStasticalCalculator {
 
     }
 
-    public static void calculateMode(HashMap<Integer, Integer> a) {
+    public static void calculateMode(Map<Integer, Integer> a) {
     	int max_value = Collections.max(a.values());
 		for (Entry<Integer, Integer> entry : a.entrySet()) {
 			if (entry.getValue() == max_value) {
@@ -134,23 +135,23 @@ public class DescriptiveStasticalCalculator {
 	System.out.println("Mean Absolute Deviation (MAD) : " + mad);
     }
 
-    public static void calculateStandardDeviation(int[] a, double b) {
+    public static void calculateStandardDeviation(int[] m, double n) {
 	double temp = 0;
-	for (int i = 0; i < a.length; i++) {
-	    temp += ((a[i] - b) * (a[i] - b));
+	for (int i = 0; i < m.length; i++) {
+	    temp = temp + ((m[i] - n) * (m[i] - n));
 	}
-	temp /= a.length;
+	temp = temp / m.length;
 	sd = squareRoot(temp);
 	System.out.println("Standard Deviation (SD) : " + sd);
     }
 
     public static double squareRoot(double a) {
 	double temp;
-	double sr = a / 2;
+	double squareroot = a / 2;
 	do {
-	    temp = sr;
-	    sr = (temp + (a / temp)) / 2;
-	} while ((temp - sr) != 0);
-	return sr;
+	    temp = squareroot;
+	    squareroot = (temp + (a / temp)) / 2;
+	} while ((temp - squareroot) != 0);
+	return squareroot;
     }
 }
