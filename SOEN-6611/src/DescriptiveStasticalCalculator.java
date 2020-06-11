@@ -38,6 +38,7 @@ public class DescriptiveStasticalCalculator {
 		else
 			entry_count.put(numbers[i], 1);
 	    }
+	    numbers = sort(numbers);
 	    
 	    System.out.println("Min : " + numbers[0]);
 	    System.out.println("Max : " + numbers[numbers.length - 1]);
@@ -56,7 +57,7 @@ public class DescriptiveStasticalCalculator {
 	sc.close();
     }
 
-    public static void  sort(int[] a) {
+    public static int[]  sort(int[] a) {
 
 	int temp = 0;
 	for(int i=0;i<a.length;i++) {
@@ -71,7 +72,7 @@ public class DescriptiveStasticalCalculator {
 		
 	    }
 	}
-	
+	return a;
 	
     }
 
@@ -120,15 +121,16 @@ public class DescriptiveStasticalCalculator {
 		for (Entry<Integer, Integer> entry : a.entrySet()) {
 			if (entry.getValue() == max_value) {
 				System.out.println("Mode : " + entry.getKey());
+				break;
 			}
 		}
     }
 
     public static void calculateMAD(int[] a, double b) {
-	int temp = 0;
+	double temp = 0;
 	for (int i = 0; i < a.length; i++) {
 	    if (a[i] > b)
-		temp += (a[i] - b);
+	    	temp += (a[i] - b);
 	    temp += (b - a[i]);
 	}
 	mad = temp / a.length;
