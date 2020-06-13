@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class DescriptiveStasticalCalculator {
 
-    static Map<Integer, Integer> entryCount = new HashMap<>();
+    static Map<Integer, Integer> entryCount = new HashMap<Integer, Integer>();
 
     public static void main(String[] args) {
 
@@ -14,7 +14,7 @@ public class DescriptiveStasticalCalculator {
 	char input = 'y';
 
 	while (input == 'y') {
-	    while (length < 1000) { // change to 1000
+	    while (length < 1000) { 
 		System.out.println("Enter the length of number more than 1000 ");
 		length = sc.nextInt();
 	    }
@@ -29,8 +29,9 @@ public class DescriptiveStasticalCalculator {
 		    entryCount.put(numbers[i], 1);
 	    }
 	    Statistic statistic = new Statistic();
-	    numbers = statistic.sort(numbers);
-
+	    numbers = statistic.sort(numbers, statistic.Max(numbers));
+	   
+	  
 	    System.out.println("Min : " + numbers[0]);
 	    System.out.println("Max : " + numbers[numbers.length - 1]);
 
@@ -43,6 +44,7 @@ public class DescriptiveStasticalCalculator {
 	    input = sc.next().charAt(0);
 	    length = 0;
 	}
+	System.out.println("Thank You. Good-Bye.");
 	sc.close();
     }
 }
