@@ -3,6 +3,13 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * <h2>Descriptive Statistical Calculator</h2>
+ * This class works as a main controller which calculates Mean, Median, Mode,
+ * Mean Absolute Deviation, and Standard Deviation by calling the methods. 
+ * 
+ * @author Team C
+ */
 public class DescriptiveStasticalCalculator {
 
     static Map<Integer, Integer> entryCount = new HashMap<Integer, Integer>();
@@ -18,6 +25,11 @@ public class DescriptiveStasticalCalculator {
 		System.out.println("Enter the length of number more than 1000 ");
 		length = sc.nextInt();
 	    }
+	    
+	    /*
+	     * Generating random numbers
+	     * 
+	     */
 	    int[] numbers = new int[length];
 	    Random random = new Random();
 
@@ -31,14 +43,13 @@ public class DescriptiveStasticalCalculator {
 	    Statistic statistic = new Statistic();
 	    numbers = statistic.sort(numbers, statistic.Max(numbers));
 	   
-	  
 	    System.out.println("Min : " + numbers[0]);
 	    System.out.println("Max : " + numbers[numbers.length - 1]);
 
 	    statistic.calculateMean(numbers);
 	    statistic.calculateMedian(numbers);
 	    statistic.calculateMode(entryCount);
-	    statistic.calculateMAD(numbers, statistic.getMean());
+	    statistic.calculateMeanAbsoluteDeviation(numbers, statistic.getMean());
 	    statistic.calculateStandardDeviation(numbers, statistic.getMean());
 	    System.out.println("Do you want to perform another time? (y/n)");
 	    input = sc.next().charAt(0);
