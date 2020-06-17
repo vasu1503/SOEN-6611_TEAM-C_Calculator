@@ -45,7 +45,8 @@ public class DescriptiveStasticalCalculator {
 	   
 	    System.out.println("Min : " + numbers[0]);
 	    System.out.println("Max : " + numbers[numbers.length - 1]);
-
+	   
+	 
 	    statistic.calculateMean(numbers);
 	    statistic.calculateMedian(numbers);
 	    statistic.calculateMode(entryCount);
