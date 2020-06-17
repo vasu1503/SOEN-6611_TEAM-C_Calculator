@@ -128,13 +128,22 @@ public class Statistic {
 	static double Square(double n, double i, double j) {
 		double mid = (i + j) / 2;
 		double mul = mid * mid;
-
+		double temp = mul-n ;
+		
+		if(temp > 0) {
+			
+			temp = mul-n;
+		}
+		else {
+			
+			temp = n-mul;
+		}
         /*
          * If mid itself is the square root
          * 
          * @return mid 
          */
-		if ((mul == n) || (Math.abs(mul - n) < 0.00001))
+		if ((mul == n) || temp < 0.00001)
 			return mid;
 
 		/*
