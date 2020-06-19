@@ -7,6 +7,11 @@
                                                               
  # Team Members: TEAM C
 
-Vasu Dadhania  :  40103048
+Ghalia Elkerdi : 25162211
+Pooja Dhir : 40104545
+Kirti Dhir : 40094627
+Vasu Dadhania : 40103048
+Manjot kaur Dherdi : 40107905
+Nuppur nikkan Das : 40039932
 
 
