@@ -53,20 +53,21 @@ public class Statistic {
 	 * Calculates Mean(average) value
 	 */
 	
-	public void calculateMean(int[] a) {
+	public double calculateMean(int[] a) {
 		double total = 0;
 		for (int i = 0; i < a.length; i++) {
 			total = total + a[i];
 		}
 		mean = (total / a.length);
 		System.out.println("Mean : " + mean);
+		return mean;
 	}
 	
 	/*
 	 * Calculates Median(middle) value
 	 */
 
-	public void calculateMedian(int a[]) {
+	public double calculateMedian(int a[]) {
 		double m1 = 0;
 		int n1 = 0;
 		int n2 = 0;
@@ -80,13 +81,14 @@ public class Statistic {
 			 m1 = a[no / 2];
 		   }
 		  System.out.println("Median " + m1);
+		  return m1;
 	  }
 	
 	/*
 	 * Calculates Mode(most frequently occurred) value
 	 */
 
-	public void calculateMode(Map<Integer, Integer> a) {
+	public int calculateMode(Map<Integer, Integer> a) {
 		int maximum = Collections.max(a.values());
 		for (Entry<Integer, Integer> entry : a.entrySet()) {
 			if (entry.getValue() == maximum) {
@@ -94,13 +96,14 @@ public class Statistic {
 				break;
 			}
 		}
+		return maximum;
 	}
 	
 	/*
 	 * Calculates Mean Absolute Deviation
 	 */
 
-	public void calculateMeanAbsoluteDeviation(int[] a, double b) {
+	public double calculateMeanAbsoluteDeviation(int[] a, double b) {
 		double temp = 0;
 		for (int i = 0; i < a.length; i++) {
 			if (a[i] > b)
@@ -109,13 +112,14 @@ public class Statistic {
 		}
 		meanAbsoluteDeviation = temp / a.length;
 		System.out.println("Mean Absolute Deviation (MAD) : " + meanAbsoluteDeviation);
+		return temp;
 	}
 	
 	/*
 	 * Standard Deviation
 	 */
 
-	public void calculateStandardDeviation(int[] m, double n) {
+	public double calculateStandardDeviation(int[] m, double n) {
 		double temp = 0;
 		for (int i = 0; i < m.length; i++) {
 			temp = temp + ((m[i] - n) * (m[i] - n));
@@ -123,6 +127,7 @@ public class Statistic {
 		temp = temp / m.length;
 		standardDeviation = squareRoot(temp);
 		System.out.println("Standard Deviation (SD) : " + standardDeviation);
+		return temp;
 	}
 
 	static double Square(double n, double i, double j) {

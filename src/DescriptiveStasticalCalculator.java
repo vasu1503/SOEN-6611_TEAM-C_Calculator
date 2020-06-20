@@ -22,7 +22,7 @@ public class DescriptiveStasticalCalculator {
 
 	while (input == 'y') {
 	    while (length < 1000) { 
-		System.out.println("Enter the length of number more than 1000 ");
+		System.out.println("Please enter desired size of the dataset to be generated (higher than 1000):");
 		length = sc.nextInt();
 	    }
 	    
@@ -52,11 +52,11 @@ public class DescriptiveStasticalCalculator {
 	    statistic.calculateMode(entryCount);
 	    statistic.calculateMeanAbsoluteDeviation(numbers, statistic.getMean());
 	    statistic.calculateStandardDeviation(numbers, statistic.getMean());
-	    System.out.println("Do you want to perform another time? (y/n)");
+	    System.out.println("Would you like to perform another operation? (y/n)");
 	    input = sc.next().charAt(0);
 	    length = 0;
 	}
-	System.out.println("Thank You. Good-Bye.");
+	System.out.println("Thank You. Good-Bye!");
 	sc.close();
     }
 }
